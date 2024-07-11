@@ -436,7 +436,7 @@ publishing {
         pom {
             name.set("Kotlin Multiplatform BigNum")
             description.set("Kotlin Multiplatform BigNum library")
-            url.set("https://github.com/ionspin/kotlin-multiplatform-bignum")
+            url.set("https://github.com/HoangNguyen219/kotlin-multiplatform-bignum")
             licenses {
                 license {
                     name.set("The Apache License, Version 2.0")
@@ -451,28 +451,22 @@ publishing {
                 }
             }
             scm {
-                url.set("https://github.com/ionspin/kotlin-multiplatform-bignum")
-                connection.set("scm:git:git://git@github.com:ionspin/kotlin-multiplatform-bignum.git")
-                developerConnection.set("scm:git:ssh://git@github.com:ionspin/kotlin-multiplatform-bignum.git")
+                url.set("https://github.com/HoangNguyen219/kotlin-multiplatform-bignum")
+                connection.set("scm:git:git://git@github.com:HoangNguyen219/kotlin-multiplatform-bignum.git")
+                developerConnection.set("scm:git:ssh://git@github.com:HoangNguyen219/kotlin-multiplatform-bignum.git")
             }
         }
     }
     repositories {
         maven {
-
-            url = uri(sonatypeStaging)
+            url = uri("https://maven.pkg.github.com/HoangNguyen219/kotlin-multiplatform-bignum")
             credentials {
-                username = sonatypeUsername ?: sonatypeUsernameEnv ?: ""
-                password = sonatypePassword ?: sonatypePasswordEnv ?: ""
-            }
-        }
-
-        maven {
-            name = "snapshot"
-            url = uri(sonatypeSnapshots)
-            credentials {
-                username = sonatypeUsername ?: sonatypeUsernameEnv ?: ""
-                password = sonatypePassword ?: sonatypePasswordEnv ?: ""
+                credentials {
+                    username = findProperty("gpr.user") as String?
+                        ?: System.getenv("USERNAME_GITHUB")
+                    password = findProperty("gpr.token") as String?
+                        ?: System.getenv("TOKEN_GITHUB")
+                }
             }
         }
     }
