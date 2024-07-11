@@ -1,6 +1,9 @@
 ## Descriptive changelog
 (All dates are DD.MM.YYYY)
 
+##### 0.3.11 - 11.7.2024
+- Fix or bitwise function and modInverse function
+
 ##### 0.3.10-SNAPSHOT - current snapshot
 - Fix for #280, return byte array containing zero instead of empty array when big integer is zero.
 
